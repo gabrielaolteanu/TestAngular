@@ -8,31 +8,43 @@ import { ActivityService } from 'src/app/activity.service';
 })
 export class ActivityComponent implements OnInit {
   rawlist: any;
+  pricelist: any
   constructor(private activityService: ActivityService) { }
-onGetUsers():void  {
-  this.activityService.getActivity()
-  .subscribe(
-    data => this.rawlist=data,
-    (response) => this.rawlist,
+// onGetUsers():void  {
+//   this.activityService.getActivity()
+//   .subscribe(
+//     data => this.rawlist=data,
+//     (response) => this.rawlist,
 
-    ) 
+//     ) 
   
-}
+// }
 
 
 getRawData() {
   this.activityService
-    .getRawData()
+    .getActivity()
     .subscribe(
       data => this.rawlist=data,
       error => console.log(error)
     );
 }
+getPrice() {
+  this.activityService
+    .getPrice()
+    .subscribe(
+      data => this.pricelist=data,
+      error => console.log(error)
+    );
+}
+
+
   ngOnInit(): void {
- 
-    this.activityService.getRawData().subscribe(data => {
-      this.rawlist = data;
-    })
+ this.getRawData()
+ this.getPrice()
+    // this.activityService.getActivity().subscribe(data => {
+    //   this.rawlist = data;
+    // })
   }
   
 

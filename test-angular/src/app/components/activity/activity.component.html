@@ -1,8 +1,13 @@
 <h1>ACTIVITY</h1>
-<label></label>
+
+
+
 <button (click)="getRawData()">btn</button>
-
-
-<div *ngIf="rawlist">
-  {{ rawlist.price }}
+<div class="d-flex flex-column" *ngIf="rawlist">
+  <h5>Type</h5>
+  <p> {{ rawlist.type }}</p>
+  <h5>Participants</h5>
+  <p>{{ rawlist.participants }}</p>
+  <h5>Price</h5>
+  <p>{{ rawlist.price }}</p>
 </div>
